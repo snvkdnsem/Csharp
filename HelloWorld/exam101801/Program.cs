@@ -361,7 +361,7 @@ class Program
 }
 */
 
-
+/*
 //4. 이벤트 호출시 데이터를 넘기는 예제 입니다.괄호채워 주세요
 //[실행결과]
 //iAnswer = 7
@@ -411,21 +411,26 @@ public class MultipleOfFiveEventArgs : EventArgs
     }
     public int Total { get; set; }
 }
-
+*/
 
 /*
 //5. 다이렉트 호출 스크립트 입니다.
  
 using System;
  
-namespace Akadia.NoDelegate
+namespace A
 {
+    public delegate void Name();
+    public delegate void Name2(string s);
     public class MyClass
     {
         public void Process()
         {
             Console.WriteLine("Process() begin");
             Console.WriteLine("Process() end");
+        }
+        public void SayHo(string s) {
+            Console.WriteLine("형 밥사줘 {0}", s);
         }
     }
 
@@ -435,74 +440,84 @@ namespace Akadia.NoDelegate
         {
             MyClass myClass = new MyClass();
             myClass.Process();
+            Name deli = new Name(myClass.Process);
+            deli();
+            Action deli2 = myClass.Process;
+            deli2();
+
+            Name2 deli3 = new Name2(myClass.SayHo);
+            deli3("신구에게 지금당장");
+            Action<string> deli4 = myClass.SayHo;
+            deli4("집에가자");
         }
     }
 }
 
-델리게이트를 사용하여 호출하는 예제로 재작성 하세요.
-1. 델리게이트를 별도로 선언하여
-2. Action 델리게이트를 이용하여
- */
- 
- /*
-//6. 괄호 채워 주세요
+//델리게이트를 사용하여 호출하는 예제로 재작성 하세요.
+//1. 델리게이트를 별도로 선언하여
+//2. Action 델리게이트를 이용하여
+//1. 델리게이트를 별도로 선언하여
+//2. Func 델리게이트를 이용하여
+*/
 
-[c:\GitHub\process.log 파일의 내용]
-Process() begin
-Process() end
- 
- 
+
+//6. 괄호 채워 주세요
+//[c:\GitHub\process.log 파일의 내용]
+//Process() begin
+//Process() end
+
+
 using System;
 using System.IO;
- 
+
 namespace Akadia.SimpleDelegate
 {
-    public class MyClass
-    {
-        public delegate void LogHandler(string message);
-        public void Process(LogHandler logHandler)
-        {
-            (채워 주세요...)
+   public class MyClass
+   {
+       public delegate void LogHandler(string message);
+       public void Process(LogHandler logHandler)
+       {
+            logHandler("Process() begin");
+            logHandler("Process() end");
         }
-    }
+   }
 
-    public class FileLogger
-    {
-        FileStream fileStream;
-        StreamWriter streamWriter;
+   public class FileLogger
+   {
+       FileStream fileStream;
+       StreamWriter streamWriter;
 
-        // Constructor
-        public FileLogger(string filename)
-        {
-            fileStream = new FileStream(filename, FileMode.Create);
-            streamWriter = new StreamWriter(fileStream);
-        }
+       // Constructor
+       public FileLogger(string filename)
+       {
+           fileStream = new FileStream(filename, FileMode.Create);
+           streamWriter = new StreamWriter(fileStream);
+       }
 
-        // Member Function which is used in the Delegate
-        public void Logger(string s)
-        {
-            streamWriter.WriteLine(s);
-        }
+       // Member Function which is used in the Delegate
+       public void Logger(string s)
+       {
+           streamWriter.WriteLine(s);
+       }
 
-        public void Close()
-        {
-            streamWriter.Close();
-            fileStream.Close();
-        }
-    }
+       public void Close()
+       {
+           streamWriter.Close();
+           fileStream.Close();
+       }
+   }
 
-    public class TestApplication
-    {
-        static void Main(string[] args)
-        {
-            FileLogger fl = new FileLogger("c:\\GitHub\\process.log");
+   public class TestApplication
+   {
+       static void Main(string[] args)
+       {
+           FileLogger fl = new FileLogger("c:\\GitHub\\process.log");
 
-            MyClass myClass = new MyClass();
+           MyClass myClass = new MyClass();
 
-            MyClass.LogHandler myLogger = (채워 주세요 );
-            (채워 주세요  )
-            fl.Close();
-        }
-    }
+           MyClass.LogHandler myLogger = new MyClass.LogHandler(fl.Logger);
+            myClass.Process(myLogger);
+           fl.Close();
+       }
+   }
 }
-*/
