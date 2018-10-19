@@ -33,4 +33,4 @@ namespace ConsoleApplication4
         }
         static string convertUpper(string str) { return str.ToUpper(); }
     }
-}
+}

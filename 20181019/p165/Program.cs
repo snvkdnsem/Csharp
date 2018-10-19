@@ -21,6 +21,7 @@ namespace ConsoleApplication4
             //Func<T, TResult>에 delegate할당, 문자열을 문자배열로 리턴
             Func<string, char[]> func4 = delegate (string str) { return str.ToArray(); };
             Console.WriteLine("func4 :: 배열크기={0}, 처음요소={1}", func4("oraclejavacommunity").Count(), func4("oraclejavacommunity ")[0]);
+            // oraclejavacommunity글자가 19글자
 
             //Func<T, TResult>에서 함수를 지정
             Func<string, string> func5 = convertUpper;
@@ -33,4 +34,4 @@ namespace ConsoleApplication4
         }
         static string convertUpper(string str) { return str.ToUpper(); }
     }
-}
+}
