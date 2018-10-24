@@ -78,7 +78,7 @@ namespace p298
             }
         }
         public static void Modifying()
-        {
+        { 
             try
             {
                 string sqlmodify = "UPDATE emp SET ename = '오닷넷' WHERE empno = 888";
