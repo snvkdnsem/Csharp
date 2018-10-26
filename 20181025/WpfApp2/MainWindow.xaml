@@ -10,6 +10,5 @@
         <Label Content="이름을 입력하세요." HorizontalAlignment="Left" Margin="118,173,0,0" VerticalAlignment="Top" FontSize="20" RenderTransformOrigin="0.496,0.46"/>
         <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" Margin="332,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="20"/>
         <Button x:Name="btnSayHello" Content="Say Hello!" HorizontalAlignment="Left" Margin="478,179,0,0" VerticalAlignment="Top" Width="75" Click="btnSayHello_Click"/>
-
     </Grid>
 </Window>
