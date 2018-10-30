@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
-    </Grid>
+        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Blue">
+            <Button.Style>
+                <Style>
+                    <Setter Property="Button.FontSize" Value="16pt" />
+                    <Setter Property="Button.FontWeight" Value="Bold" />
+                    <Setter Property="Button.FontFamily" Value="Constantia"
+/>
+                    <Setter Property="Control.Foreground" Value="Red" />
+                </Style>
+            </Button.Style>
+            Button Test
+        </Button>    </Grid>
 </Window>
