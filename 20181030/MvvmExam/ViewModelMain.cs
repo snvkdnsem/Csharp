@@ -57,7 +57,7 @@ namespace MvvmExam.ViewModel
         void AddEmp(object param)
         {
             if (param == null) param = "NAME";
-            Emps.Add(new Emp() { Empno = Emps.Count + 1, Ename = param.ToString() });
+            Emps.Add(new Emp() { Empno = Emps.Count+1, Ename = param.ToString() });
         }
     }
 }
